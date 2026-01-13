@@ -13,7 +13,7 @@ const Home = () => {
       discount: 17,
       category: "Men",
       image:
-        "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       isNew: true,
     },
     {
@@ -22,7 +22,7 @@ const Home = () => {
       price: 49.0,
       category: "Unisex",
       image:
-        "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1578768076057-3d98fb27da29?q=80&w=2570&auto=format&fit=crop",
     },
     {
       id: 3,
@@ -39,7 +39,7 @@ const Home = () => {
       originalPrice: 24.0,
       category: "Kids",
       image:
-        "https://images.unsplash.com/photo-1519457431-44ccd64a579b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1519278470570-c7500beee821?q=80&w=2574&auto=format&fit=crop",
       isNew: true,
     },
   ];

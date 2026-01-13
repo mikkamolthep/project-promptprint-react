@@ -8,6 +8,7 @@ const AiDesign = () => {
   const [prompt, setPrompt] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedImage, setGeneratedImage] = useState(null);
+  const [enhancedPrompt, setEnhancedPrompt] = useState(null);
 
   // Function to call AI generation API
   const handleGenerate = async () => {
@@ -31,6 +32,7 @@ const AiDesign = () => {
 
       if (response.ok) {
         setGeneratedImage(data.imageUrl);
+        setEnhancedPrompt(data.enhancedPrompt);
       } else {
         console.error("Failed to generate:", data.error);
         alert("Failed to generate image. Please try again.");
@@ -124,6 +126,16 @@ const AiDesign = () => {
                 Describe your vision, and let our AI generate unique artwork for
                 your custom tee.
               </p>
+
+              {enhancedPrompt && (
+                <div className="mb-6 p-4 bg-purple-50 border border-purple-100 rounded-xl text-sm">
+                  <div className="flex items-center gap-2 text-purple-700 font-semibold mb-1">
+                    <Sparkles className="w-4 h-4" />
+                    Enhanced by Gemini
+                  </div>
+                  <p className="text-gray-700 italic">"{enhancedPrompt}"</p>
+                </div>
+              )}
 
               {/* Prompt Input */}
               <div className="mb-8">
