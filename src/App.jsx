@@ -21,8 +21,10 @@ import ForgetPassword from "./views/ForgetPassword";
 import ResetPassword from "./views/ResetPassword";
 import LandingPage from "./views/LandingPage"; //New code from Juang
 
+
 const App = () => {
   return (
+    
     <Routes>
       {/* Main layout */}
       <Route path="/" element={<Layout />}>
