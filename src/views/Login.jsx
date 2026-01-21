@@ -50,14 +50,10 @@ export default function Login() {
       className="flex justify-center items-center min-h-screen bg-no-repeat bg-cover bg-center"
       style={{ backgroundImage: "url('/bg.jpg')" }}
     >
-<<<<<<< HEAD
-      <form className="flex flex-col gap-4 p-18 rounded-3xl backdrop-blur-xs shadow-xl min-w-87.5">
-=======
       <form
         onSubmit={handleLogin}
         className="flex flex-col gap-4 p-18 rounded-3xl backdrop-blur-xs shadow-xl min-w-[350px]"
       >
->>>>>>> 979c2e1bd0f28535be95240cc6c5d305070bc9c4
         <h2 className="font-bold text-3xl text-center text-white">Login</h2>
 
         <input
