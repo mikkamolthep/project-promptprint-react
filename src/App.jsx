@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import AuthLayout from "./components/AuthLayout";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 import Home from "./views/Home";
 import Login from "./views/Login";
@@ -26,7 +27,15 @@ const App = () => {
   return (
     
     <Routes>
-      {/* Main layout */}
+      {/* Auth pages - Full width with navbar only, no sidebar */}
+      <Route element={<AuthLayout />}>
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Register />} />
+        <Route path="forgetpassword" element={<ForgetPassword />} />
+        <Route path="resetpassword" element={<ResetPassword />} />
+      </Route>
+
+      {/* Main layout with sidebar */}
       <Route path="/" element={<Layout />}>
         <Route index element={<LandingPage />} /> //New code from Juang
         <Route path="Home" element={<Home />} /> //New code from Juang
@@ -37,8 +46,22 @@ const App = () => {
         <Route path="admin/orders" element={<AdminOrderList />} />
         <Route path="cart" element={<Cart />} />
         <Route path="checkout" element={<Checkout />} />
-        <Route path="ai-design" element={<AiDesign />} />
-        <Route path="design/:productId" element={<AiDesign />} />
+        <Route
+          path="ai-design"
+          element={
+            <ProtectedRoute>
+              <AiDesign />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="design/:productId"
+          element={
+            <ProtectedRoute>
+              <AiDesign />
+            </ProtectedRoute>
+          }
+        />
         <Route path="about" element={<About />} />
         <Route path="faqs" element={<Faqs />} />
         <Route path="membership" element={<Membership />} />
