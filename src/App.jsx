@@ -24,6 +24,9 @@ import LandingPage from "./views/LandingPage"; //New code from Juang
 
 
 const App = () => {
+
+  const isAuthenticated = !!localStorage.getItem("token");
+
   return (
     
     <Routes>
@@ -37,14 +40,21 @@ const App = () => {
 
       {/* Main layout with sidebar */}
       <Route path="/" element={<Layout />}>
-        <Route index element={<LandingPage />} /> //New code from Juang
-        <Route path="Home" element={<Home />} /> //New code from Juang
+        {/* ถ้า login แล้วให้ไป Home ถ้ายังไม่ login ให้ไป LandingPage */}
+        <Route index element={isAuthenticated ? <Home /> : <LandingPage />} />
         <Route path="products" element={<ProductList />} />
         <Route path="admin/products" element={<AdminProduct />} />
         <Route path="admin/manage-products" element={<AdminProductList />} />
         <Route path="admin/users" element={<AdminUserList />} />
         <Route path="admin/orders" element={<AdminOrderList />} />
-        <Route path="cart" element={<Cart />} />
+        <Route
+          path="cart"
+          element={
+            <ProtectedRoute>
+              <Cart />
+            </ProtectedRoute>
+          }
+        />
         <Route path="checkout" element={<Checkout />} />
         <Route
           path="ai-design"
